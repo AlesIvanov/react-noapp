@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .car {
+            display: inline-block;
+            border: 2px solid #ccc;
+            box-shadow: 2px 2px 1px #eee;
+            padding: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    class App extends React.Component {
+
+        state = {
+            value: 'привет'
+        }
+
+        handleChange(event) {
+            this.setState({
+                value: event.target.value
+            })
+        }
+
+        render() {
+            return (
+                <div>
+                    <h1>{this.state.value}</h1>
+                    <input type="text"
+                        defaultValue={this.state.value}
+                        onChange={this.handleChange.bind(this)}
+                    />
+                </div>
+            )
+        }
+
+    }
+
+    ReactDOM.render(
+        <App/>,
+        document.querySelector('#root')
+    )
+
+</script>
+</body>
+</html>
